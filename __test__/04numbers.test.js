@@ -1,10 +1,8 @@
-// toBeGreaterThan matches only greater numbers
-// toBeGreaterThanOrEqual matches only greater or equal numbers
-// toBeLessThan matches only lesser numbers
-// toBeLessThanOrEqual matches only lesser or equal numbers 
-// toBe matches only when second argument is equal than first
-// toBeCloseTo matches only when second argument is equal than first (floating point numbers)
-// toEqual matches only when second argument is equal than first
+// expect(n).toBeGreaterThan(number) matches only greater numbers
+// expect(n).toBeGreaterThanOrEqual(number) matches only greater or equal numbers
+// expect(n).toBeLessThan(number) matches only lesser numbers
+// expect(n).toBeLessThanOrEqual(number) matches only lesser or equal numbers 
+// expect(n).toBeCloseTo(number) matches only when second argument is equal than first (floating point numbers)
 
 test('2 + 2 = 4', () => {
   const value = 2 + 2

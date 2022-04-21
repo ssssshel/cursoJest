@@ -1,8 +1,10 @@
-// toBeNull matches only null
-// toBeUndefined matches only undefined
-// toBeDefined matches only defined
-// toBeTruthy matches anything that an if statement treats as true
-// toBeFalsy matches anything that an if statement treats as false
+// expect(n).toBe(a) matches only when second argument is equal than first
+// expect(n).toEqual(a) matches only when second argument is equal than first
+// expect(n).toBeNull() matches only null
+// expect(n).toBeUndefined() matches only undefined
+// expect(n).toBeDefined() matches only defined
+// expect(n).toBeTruthy() matches anything that an if statement treats as true
+// expect(n).toBeFalsy() matches anything that an if statement treats as false
 
 test('null ', () => {
   const n = null;
