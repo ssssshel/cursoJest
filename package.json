@@ -1,0 +1,22 @@
+{
+  "name": "cursojest",
+  "version": "1.0.0",
+  "description": "Jest Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "jest",
+    "testing"
+  ],
+  "author": "Angel Arteaga",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}
