@@ -8,7 +8,7 @@ function fetchAPI(url, callback){
       if(req.status === 200){
         callback(null, JSON.parse(req.responseText))
       }else{
-        const error = new Error(`URL inválida ${url}`)
+        const err = new Error(`URL inválida ${url}`)
         return callback(err, null)
       }
     }

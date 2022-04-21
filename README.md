@@ -61,3 +61,104 @@ describe('Pruebas para suma', () => {
 ```
 
 ## 6. CALLBACKS TESTING
+
+> callback
+```javascript
+
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+
+function fetchAPI(url, callback){
+  var req = new XMLHttpRequest()
+  req.open('GET', url, true)
+  req.onreadystatechange = (event) => {
+    if(req.readyState === 4){
+      if(req.status === 200){
+        callback(null, JSON.parse(req.responseText))
+      }else{
+        const err = new Error(`URL inválida ${url}`)
+        return callback(err, null)
+      }
+    }
+  }
+  req.send()
+}
+
+module.exports = fetchAPI
+```
+
+>test suite
+```javascript
+
+const fetchAPI = require('../src/callback');
+
+test('should return album 2 info', done => {
+  const API  = 'https://jsonplaceholder.typicode.com/albums/2'
+
+  function callback(err, data){
+    try {
+      expect(err).toBeNull();
+      expect(data).not.toBeNull();
+  
+      expect(data.title).toBe('sunt qui excepturi placeat culpa');
+  
+      done()
+    } catch (err) {
+      done(err)
+    }
+  }
+  fetchAPI(API, callback)
+});
+```
+
+## 7. PROMMISES & ASYNC TESTING
+
+>promise
+```javascript
+
+const axios = require('axios')
+
+function getData(url){
+  return axios.get(url);
+}
+
+module.exports = getData
+```
+
+>promise test suite
+```javascript
+
+const getData = require ('../src/promise');
+
+const API = 'https://jsonplaceholder.typicode.com/users/2'
+
+test('should return info about user with id 2', () => {
+  getData(API).then((response) => {
+		return expect(response.data.name).toBe('Ervin Howell');
+	})});
+
+test('test should pass by a invalid URL', () => {
+	expect.assertions(1)
+	return getData('dskjdhjshdsha').catch( err => expect(err).not.toBeNull());
+});
+```
+
+>async test suite 
+```javascript
+const getData = require('../src/promise')
+const API = 'https://jsonplaceholder.typicode.com/users/2'
+
+test('should return information about user with id 2', async () => {
+	const response = await getData(API)
+
+	expect(response.data.name).toBe('Ervin Howell');
+});
+
+test('test should pass by a invalid URL', async() => {
+	expect.assertions(1)
+	try {
+		await getData('HGSFGHSD')
+	} catch(err) {
+		expect(err).not.toBeNull();
+	}
+});
+```
