@@ -2,23 +2,22 @@
 ## 1. EJEMPLO BASE DE UNA SUITE DE PRUEBAS
 
 `
-> Se importan los archivos a testear
+// Se importan los archivos a testear
 const sum = require('../src/sum');
 
->Describe contiene la suite de pruebas a realizar
+// describe contiene la suite de pruebas a realizar
 describe('Pruebas para suma', () => {
   
-  >Test contiene un test unitario a realizar
+  // test contiene un test unitario a realizar
   test('1 + 2 is 3', () => {
 
->expect declara la tarea a realizar y toBe el resultado de esa tarea
+    // expect declara la tarea a realizar y toBe el resultado de esa tarea
     expect(sum(1,2)).toBe(3)
   })
 
->it es una alternativa a test, cumplen con la misma función
+  // it es una alternativa a test, cumplen con la misma función
   it('should return 3 with 1 + 2', () => {
     expect(sum(1,2)).toBe(3)
   }
 
-});
-`
+});`
